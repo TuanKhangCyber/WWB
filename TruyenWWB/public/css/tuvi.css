@@ -1,0 +1,214 @@
+/* ========== BỐ CỤC CHUNG ========== */
+
+.tuvi-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.9fr);
+    gap: 24px;
+    margin-top: 18px;
+}
+
+/* Khung có hiệu ứng “tiên hiệp” dùng chung */
+.card-shadow {
+    background:
+        radial-gradient(circle at top, rgba(249, 224, 156, 0.12), transparent 60%),
+        rgba(15, 23, 42, 0.9);
+    border-radius: 18px;
+    padding: 18px 18px 20px;
+    border: 1px solid rgba(249, 250, 251, 0.16);
+    box-shadow: 0 18px 36px rgba(15, 23, 42, 0.9);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-shadow::before {
+    content: "";
+    position: absolute;
+    inset: -40%;
+    background:
+        radial-gradient(circle at 0% 0%, rgba(248, 250, 252, 0.1), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(251, 191, 36, 0.12), transparent 60%);
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Nội dung bên trong để không bị ảnh hưởng bởi ::before */
+.card-shadow > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* ========== TIÊU ĐỀ & TEXT ========== */
+
+.tuvi-title {
+    font-family: "Marcellus", serif;
+    font-size: 20px;
+    color: #f9e3b0;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(249, 227, 176, 0.9);
+}
+
+.tuvi-intro {
+    font-family: "Marcellus", serif;
+    font-size: 14px;
+    color: #e5e7eb;
+    line-height: 1.7;
+    margin-bottom: 14px;
+}
+
+/* ========== DANH SÁCH CẢNH GIỚI ========== */
+
+.tuvi-realms {
+    /* chỉ dùng class card-shadow để tạo khung */
+}
+
+.tuvi-realm-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 6px;
+    font-size: 14px;
+}
+
+.tuvi-realm-list li {
+    margin-bottom: 10px;
+    padding: 8px 10px;
+    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(148, 163, 184, 0.4);
+    box-shadow: 0 6px 14px rgba(15, 23, 42, 0.7);
+}
+
+.tuvi-realm-list h3 {
+    font-family: "Marcellus", serif;
+    font-size: 15px;
+    color: #facc15;
+    margin-bottom: 4px;
+    letter-spacing: 0.5px;
+}
+
+.tuvi-realm-list p {
+    font-size: 13px;
+    color: #e5e7eb;
+    line-height: 1.6;
+}
+
+/* ========== HỒ SƠ TU LUYỆN ========== */
+
+.tuvi-profile {
+    /* cũng dùng card-shadow */
+}
+
+.tuvi-profile-box {
+    background: rgba(15, 23, 42, 0.85);
+    border-radius: 14px;
+    padding: 10px 12px;
+    border: 1px solid rgba(148, 163, 184, 0.5);
+    margin-bottom: 14px;
+}
+
+.tuvi-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 5px 0;
+    font-size: 13px;
+    border-bottom: 1px dashed rgba(75, 85, 99, 0.7);
+}
+
+.tuvi-row:last-child {
+    border-bottom: none;
+}
+
+.tuvi-label {
+    color: #e5e7eb;
+    min-width: 110px;
+}
+
+.tuvi-value {
+    color: #fefce8;
+    text-align: right;
+}
+
+.tuvi-highlight {
+    color: #fbbf24;
+    font-weight: 600;
+}
+
+/* ========== THANH TIẾN ĐỘ TU LUYỆN ========== */
+
+.tuvi-progress {
+    margin-bottom: 16px;
+}
+
+.tuvi-progress-bar {
+    width: 100%;
+    height: 10px;
+    border-radius: 999px;
+    background: rgba(31, 41, 55, 0.9);
+    overflow: hidden;
+    border: 1px solid rgba(249, 250, 251, 0.2);
+    margin: 4px 0 6px;
+}
+
+.tuvi-progress-fill {
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #facc15, #f97316);
+    box-shadow: 0 0 10px rgba(250, 204, 21, 0.8);
+}
+
+.tuvi-progress-note {
+    font-size: 12px;
+    color: #e5e7eb;
+    line-height: 1.6;
+}
+
+/* ========== NÚT HÀNH ĐỘNG ========== */
+
+.tuvi-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+/* ========== GHI CHÚ BÊN DƯỚI ========== */
+
+.tuvi-note {
+    margin-top: 22px;
+}
+
+.tuvi-note p {
+    font-size: 13px;
+    color: #e5e7eb;
+    line-height: 1.7;
+    margin-bottom: 6px;
+}
+
+.tuvi-note ul {
+    margin-left: 18px;
+    font-size: 13px;
+    color: #e5e7eb;
+    line-height: 1.6;
+}
+
+/* ========== RESPONSIVE ========== */
+
+@media (max-width: 960px) {
+    .tuvi-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .tuvi-profile {
+        order: -1; /* đưa hồ sơ tu luyện lên trên trên mobile nếu thích */
+    }
+
+    .tuvi-row {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .tuvi-value {
+        text-align: left;
+    }
+}

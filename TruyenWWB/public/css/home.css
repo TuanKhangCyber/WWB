@@ -1,0 +1,446 @@
+/* ========== RESET NHẸ ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #f5f1e6;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* ========== BACKGROUND TIÊN HIỆP ========== */
+/* Dùng ảnh nền nếu có: public/img/bg-home.jpg */
+body {
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.18), transparent 55%),
+        linear-gradient(145deg, #101522, #192432 40%, #273447 70%, #3b556b);
+}
+
+/* Lớp sương mù + hạt bụi vàng */
+.page-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+        url("/img/truyenwwb.png") center center / cover no-repeat,
+        radial-gradient(circle at 20% 10%, rgba(255, 223, 186, 0.1), transparent 60%),
+        radial-gradient(circle at 80% 80%, rgba(255, 192, 203, 0.14), transparent 60%);
+    mix-blend-mode: screen;
+    opacity: 0.35;
+    z-index: 0;
+}
+
+/* ========== HEADER + NAV ========== */
+
+.main-header {
+    position: relative;
+    z-index: 2;
+    padding: 14px 42px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo khu vực */
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-symbol {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Marcellus", serif;
+    font-size: 22px;
+    color: #f9e3b0;
+    background: radial-gradient(circle at 30% 20%, #f9f2cf, #a27f47 70%);
+    box-shadow: 0 0 12px rgba(255, 225, 158, 0.55);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-title {
+    font-family: "Marcellus", serif;
+    letter-spacing: 1px;
+    font-size: 20px;
+}
+
+.logo-subtitle {
+    font-size: 11px;
+    opacity: 0.8;
+}
+
+/* NAV */
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-btn {
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(15, 26, 45, 0.65);
+    color: #f5f1e6;
+    font-size: 13px;
+    text-decoration: none;
+    transition: all 0.18s ease;
+    font-family: "Marcellus", serif;
+}
+
+.nav-btn:hover {
+    background: rgba(245, 227, 183, 0.9);
+    color: #111827;
+    box-shadow: 0 0 12px rgba(255, 225, 158, 0.7);
+}
+
+/* Khối auth bên phải */
+.nav-auth {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 12px;
+    padding-left: 12px;
+    border-left: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* Nút icon Login / Register / Logout */
+.nav-auth-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(248, 250, 252, 0.6);
+    background: rgba(15, 23, 42, 0.7);
+    color: #f5f1e6;
+    font-size: 12px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.16s ease, box-shadow 0.16s ease, transform 0.12s ease, border-color 0.16s ease;
+    font-family: "Marcellus", serif;
+}
+
+.nav-auth-btn:hover {
+    background: rgba(248, 250, 252, 0.9);
+    color: #111827;
+    border-color: #facc15;
+    box-shadow: 0 0 10px rgba(250, 204, 21, 0.6);
+    transform: translateY(-1px);
+}
+
+.nav-auth-icon {
+    font-size: 14px;
+}
+
+.nav-auth-text {
+    font-size: 12px;
+}
+
+/* Logout màu cảnh báo nhẹ */
+.nav-auth-btn--danger {
+    border-color: rgba(248, 113, 113, 0.8);
+}
+
+.nav-auth-btn--danger:hover {
+    background: rgba(248, 113, 113, 0.95);
+    color: #fef2f2;
+    box-shadow: 0 0 10px rgba(248, 113, 113, 0.7);
+}
+
+/* (Giữ lại nav-link nếu sau này dùng chỗ khác) */
+.nav-link {
+    font-size: 13px;
+    color: #f5f1e6;
+    text-decoration: none;
+    padding: 7px 12px;
+    border-radius: 999px;
+    transition: all 0.18s ease;
+}
+
+.nav-link:hover {
+    background: rgba(148, 163, 184, 0.24);
+}
+
+.nav-link--outline {
+    border: 1px solid rgba(248, 250, 252, 0.8);
+}
+
+/* Thanh search trên navbar */
+.nav-search {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: 8px;
+    padding: 3px 6px;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(148, 163, 184, 0.7);
+    backdrop-filter: blur(4px);
+}
+
+.nav-search-input {
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #e5e7eb;
+    font-size: 13px;
+    width: 160px;
+    font-family: "Marcellus", serif;
+}
+
+.nav-search-input::placeholder {
+    color: rgba(209, 213, 219, 0.8);
+    font-size: 12px;
+}
+
+.nav-search-btn {
+    border: none;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 15px;
+    color: #facc15;
+    padding: 0 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.12s ease;
+}
+
+.nav-search-btn:hover {
+    transform: translateY(-1px);
+}
+
+/* ========== MAIN CONTENT / HERO ========== */
+
+.main-content {
+    position: relative;
+    z-index: 1;
+    padding: 24px 42px 60px;
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.9fr);
+    gap: 40px;
+    align-items: center;
+}
+
+/* Text bên trái */
+.hero-text h1 {
+    font-family: "Marcellus", serif;
+    font-size: 32px;
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.hero-text h1 span {
+    color: #f9e3b0;
+    text-shadow: 0 0 14px rgba(249, 227, 176, 0.9);
+}
+
+.hero-text p {
+    font-family: "Marcellus", serif;
+    font-size: 16px;
+    color: #e5e7eb;
+    line-height: 1.7;
+    max-width: 520px;
+    margin-bottom: 22px;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #f9e3b0, #fbbf77);
+    color: #111827;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 10px 24px rgba(248, 215, 148, 0.5);
+    transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(250, 204, 118, 0.75);
+}
+
+.btn-ghost {
+    display: inline-block;
+    padding: 9px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(249, 250, 251, 0.6);
+    color: #e5e7eb;
+    text-decoration: none;
+    font-size: 14px;
+    backdrop-filter: blur(4px);
+    background: rgba(15, 23, 42, 0.5);
+    transition: all 0.16s ease;
+}
+
+.btn-ghost:hover {
+    background: rgba(148, 163, 184, 0.3);
+}
+
+/* Panel tu vi bên phải */
+.hero-panel {
+    background: radial-gradient(circle at top, rgba(255, 255, 255, 0.18), transparent 70%),
+                rgba(15, 23, 42, 0.82);
+    border-radius: 20px;
+    padding: 20px 18px 18px;
+    box-shadow: 0 14px 32px rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(249, 250, 251, 0.18);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-panel::before {
+    content: "";
+    position: absolute;
+    width: 160%;
+    height: 160%;
+    top: -40%;
+    left: -30%;
+    background: radial-gradient(circle at 10% 10%, rgba(249, 224, 156, 0.25), transparent 60%);
+    opacity: 0.65;
+    pointer-events: none;
+}
+
+.hero-panel h2 {
+    position: relative;
+    font-family: "Marcellus", serif;
+    font-size: 20px;
+    margin-bottom: 14px;
+}
+
+.cultivation-list {
+    position: relative;
+    list-style: none;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+.cultivation-list li {
+    margin-bottom: 6px;
+}
+
+.cultivation-list span {
+    color: #eab308;
+}
+
+.btn-small {
+    position: relative;
+    display: inline-block;
+    font-size: 13px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(252, 211, 77, 0.9);
+    color: #fef9c3;
+    text-decoration: none;
+    background: rgba(250, 204, 21, 0.1);
+    transition: all 0.16s ease;
+}
+
+.btn-small:hover {
+    background: rgba(250, 204, 21, 0.3);
+}
+
+/* ========== FOOTER ========== */
+
+.main-footer {
+    position: relative;
+    z-index: 1;
+    padding: 24px 42px 30px;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.2));
+    border-top: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.footer-inner {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+    font-size: 13px;
+}
+
+.footer-col h3 {
+    font-family: "Marcellus", serif;
+    font-size: 15px;
+    margin-bottom: 8px;
+    color: #fef3c7;
+}
+
+.footer-col p,
+.footer-col li,
+.footer-col span {
+    color: #e5e7eb;
+    line-height: 1.6;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links a {
+    color: #fbbf77;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-note .copyright {
+    margin-top: 10px;
+    font-size: 11px;
+    color: #9ca3af;
+}
+
+/* ========== RESPONSIVE ========== */
+
+@media (max-width: 960px) {
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 26px;
+    }
+
+    .main-header,
+    .main-content,
+    .main-footer {
+        padding-inline: 18px;
+    }
+
+    .main-nav {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .footer-inner {
+        grid-template-columns: 1fr;
+    }
+}
